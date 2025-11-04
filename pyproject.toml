@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ProtToolKit"
+version = "0.1.0"
+description = "Utilities for protein design and analysis"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [{name = "superchrisw", email = "liyao-wang@qq.com"}]
+keywords = ["protein", "structure", "design", "bioinformatics"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+# Runtime deps. Pin tightly only when necessary.
+dependencies = [
+  "numpy>=1.22",
+  "biopython>=1.83",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy", "build", "twine"]
+
+[tool.setuptools.packages.find]
+where = ["src"]        # look under src/
+include = ["extract_BB","MD_analysis","Protein_design","shared","Structure_quality_eval"]  # include subpackages
